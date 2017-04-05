@@ -1,0 +1,16 @@
+[Unit]
+Description=ethdrain
+
+[Service]
+Type=simple
+User=geth
+Group=geth
+# Load env vars from /etc/default/ and /etc/sysconfig/ if they exist.
+# Prefixing the path with '-' makes it try to load, but if the file doesn't
+# exist, it continues onward.
+ExecStart=/home/geth/ethdrain/ethdrain.py 0 1000
+Restart=always
+WorkingDirectory=/home/geth
+
+[Install]
+WantedBy=multi-user.target
